@@ -1,5 +1,4 @@
 *.retry
-.DS_Store
 *.rpm
 *.exe
 *.sdn
