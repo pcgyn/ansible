@@ -1,0 +1,54 @@
+
+
+
+#########################################################
+
+## [scm_server]
+# CASController
+# pxl1sas00020.dispositivos.bb.com.br ansible_host=172.17.145.43
+# pxl1sas00028.dispositivos.bb.com.br ansible_host=172.17.145.178  # secondary namenode
+
+## [krb5_server]
+# CASController
+# pxl1sas00020.dispositivos.bb.com.br ansible_host=172.17.145.43     default_realm=POCVIYA.BB.COM
+
+## [utility_servers:children]
+# scm_server
+# krb5_server
+
+## [master_servers]
+# CASController
+# pxl1sas00020.dispositivos.bb.com.br
+
+## [worker_servers]
+# pxl1sas00021.dispositivos.bb.com.br ansible_host=172.17.145.44  # CASWorker1
+# pxl1sas00022.dispositivos.bb.com.br ansible_host=172.17.145.45  # CASWorker2
+# pxl1sas00023.dispositivos.bb.com.br ansible_host=172.17.145.46  # CASWorker3
+
+## [micro_servicos]
+# pxl1sas00024.dispositivos.bb.com.br ansible_host=172.17.145.98
+
+## [mas_server]
+# pxl1sas00025.dispositivos.bb.com.br ansible_host=172.17.145.175
+
+## [esp_server]
+# pxl1sas00026.dispositivos.bb.com.br ansible_host=172.17.145.176
+
+## [sas_94]
+# pxl1sas00027.dispositivos.bb.com.br ansible_host=172.17.145.177
+
+
+# pxl1sas00028.dispositivos.bb.com.br ansible_host=172.17.145.178
+# pxl1sas00029.dispositivos.bb.com.br ansible_host=172.20.40.52
+
+## [worker_servers:vars]
+# host_template=HostTemplate-Workers
+
+## [cdh_servers:children]
+# utility_servers
+# master_servers
+# worker_servers
+#micro_servicos
+#mas_server
+#esp_server
+#sas_94
