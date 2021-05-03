@@ -1,0 +1,82 @@
+---
+
+all:
+  children:
+    todos:
+      hosts:
+        oracle_linux:
+#          ansible_port: 22
+          ansible_host: 192.168.0.99
+        debiansrv:
+#          ansible_port: 22
+          ansible_host: 192.168.0.98
+...
+
+
+## https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
+
+
+# atlanta:
+#   hosts:
+#     host1:
+#     host2:
+#   vars:
+#     ntp_server: ntp.atlanta.example.com
+#     proxy: proxy.atlanta.example.com
+
+########################################################
+## In INI:
+
+# [atlanta]
+# host1
+# host2
+
+# [raleigh]
+# host2
+# host3
+
+# [southeast:children]
+# atlanta
+# raleigh
+
+# [southeast:vars]
+# some_server=foo.southeast.example.com
+# halon_system_timeout=30
+# self_destruct_countdown=60
+# escape_pods=2
+
+# [usa:children]
+# southeast
+# northeast
+# southwest
+# northwest
+
+################################
+
+
+## In YAML:
+
+# ---
+# all:
+#   children:
+#     usa:
+#       children:
+#         southeast:
+#           children:
+#             atlanta:
+#               hosts:
+#                 host1:
+#                 host2:
+#             raleigh:
+#               hosts:
+#                 host2:
+#                 host3:
+#           vars:
+#             some_server: foo.southeast.example.com
+#             halon_system_timeout: 30
+#             self_destruct_countdown: 60
+#             escape_pods: 2
+#         northeast:
+#         northwest:
+#         southwest:
+# ...
