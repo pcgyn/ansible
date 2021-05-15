@@ -4,11 +4,9 @@ all:
   children:
     todos:
       hosts:
-        oracle_linux:
-#          ansible_port: 22
+        www:
           ansible_host: 192.168.0.99
-        debiansrv:
-#          ansible_port: 22
+        mysql:
           ansible_host: 192.168.0.98
 ...
 
