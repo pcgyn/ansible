@@ -1,0 +1,20 @@
+---
+# Update Red Hat Like
+
+- name: Update System Oracle Linux
+  yum:
+    name: '*' 
+    state: latest
+    security: true
+    update_cache: true
+  when: (ansible_distribution|lower == "oraclelinux")
+
+# Update Debian Like
+
+- name: Update System Debian
+  apt:
+    name: '*'
+    state: latest
+    update_cache: true
+  when: (ansible_distribution|lower == "debian")
+...

@@ -1,0 +1,10 @@
+---
+# Atualização do pacote PHP
+
+
+- name: Atualizacao do PHP
+  yum:
+    name: php
+    state: latest
+    update_cache: true
+...
