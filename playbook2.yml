@@ -1,0 +1,19 @@
+---
+- hosts: www
+  tasks:
+  - name: Instalaçao do Nginx
+    yum:
+      name: nginx
+      state: latest
+    notify: Stop Apache
+    notify: Restart Nginx
+  handlers:
+    - name: Stop Apache
+      systemd:
+        name: httpd
+        state: stop
+    - name: Restart Nginx
+      systemd:
+        name: nginx
+        state: restarted
+...
